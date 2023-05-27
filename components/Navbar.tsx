@@ -7,6 +7,9 @@ const Navbar = () => {
         <span className='mx-auto text-lg'>Gestión de Inventarios</span>
       </div>
       <div>Logo</div>
+      <MdMenu className='sm:hidden'>
+       
+      </MdMenu>
     </nav>
   );
 };

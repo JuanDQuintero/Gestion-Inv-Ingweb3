@@ -23,24 +23,24 @@ const Home: NextPage = () => (
 const RecogidasDespachos = () => {
   return (
     <div className='flex h-full w-full flex-col gap-2'>
-      
+      <DesktopTable />
+      <MobileCards />
     </div>
   );
 };
 
 const DesktopTable = () => {
-  const datos = _.groupBy(data, 'Fecha');
-
+  
   return (
-    <div className='hidden h-full flex-col md:flex'>
-      
+    <div className='hidden md:flex'>
+      <h1>Hola mundo</h1>
     </div>
   );
 };
 
 const MobileCards = () => (
   <div className='grid h-full grid-cols-2 items-center justify-items-center gap-2 sm:grid-cols-4 md:hidden'>
-    
+    <h1>Hola mundo</h1>
   </div>
 );
 
