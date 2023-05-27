@@ -1,6 +1,7 @@
 import Navbar from '@components/Navbar';
 import Sidebar from '@components/Sidebar';
 import React from 'react';
+import { NavigationContextProvider } from '@context/NavigationContext';
 
 interface LayoutProps {
   children: JSX.Element;
@@ -8,9 +9,11 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => (
   <main className='flex h-screen w-full flex-row'>
-    <Sidebar />
-    <Navbar />
-    <section className='flex h-full'>{children}</section>
+    <NavigationContextProvider>
+      <Navbar />
+      <Sidebar />
+    </NavigationContextProvider>
+    <section className='flex h-full w-full'>{children}</section>
   </main>
 );
 

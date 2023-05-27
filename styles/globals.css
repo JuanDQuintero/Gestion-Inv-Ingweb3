@@ -23,7 +23,7 @@ td > div {
 }
 
 th {
-  @apply bg-gray-800 px-3 text-white;
+  @apply bg-gray-300 px-3 text-black;
 }
 
 tr:nth-child(odd) {
@@ -41,7 +41,7 @@ select {
 
 button,
 button[type='button'] {
-  @apply rounded-lg bg-indigo-800 px-3 py-2 text-white hover:bg-indigo-500;
+  @apply rounded-lg bg-gray-900 px-3 py-2 text-white hover:bg-gray-400 hover:text-black;
 }
 
 button:disabled {

@@ -21,26 +21,51 @@ const Home: NextPage = () => (
 );
 
 const RecogidasDespachos = () => {
+
   return (
-    <div className='flex h-full w-full flex-col gap-2'>
+    <div className='flex h-full w-full flex-col gap-2 p-4'>
+      <div className='flex justify-center'>
+        <h1>Gestión inventarios</h1>
+      </div>
+      <div className='flex flex-col items-center justify-center gap-2 md:flex-row md:justify-between'>
+        
+      </div>
       <DesktopTable />
       <MobileCards />
+
+      <div>Footer</div>
+
     </div>
   );
 };
 
 const DesktopTable = () => {
-  
+
   return (
-    <div className='hidden md:flex'>
-      <h1>Hola mundo</h1>
+    <div className='hidden h-full flex-col md:flex'>
+      <div className='flex h-[80vh] justify-center overflow-y-auto p-6'>
+        <table className='w-full'>
+          <thead>
+            <tr>
+              <th className='w-1/4'>Identificador</th>
+              <th className='w-1/4'>Fecha</th>
+              <th className='w-1/4'>Entrada</th>
+              <th className='w-1/4'>Salida</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* Contenido de la tabla */}
+          </tbody>
+        </table>
+      </div>
+      <div>Paginacion</div>
     </div>
   );
-};
-
+}
+  
 const MobileCards = () => (
   <div className='grid h-full grid-cols-2 items-center justify-items-center gap-2 sm:grid-cols-4 md:hidden'>
-    <h1>Hola mundo</h1>
+    
   </div>
 );
 
