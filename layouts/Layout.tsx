@@ -8,7 +8,7 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => (
-  <main className='flex h-screen w-full flex-row'>
+  <main className='flex h-screen md:flex-row flex-col selection:w-full'>
     <NavigationContextProvider>
       <Navbar />
       <Sidebar />
