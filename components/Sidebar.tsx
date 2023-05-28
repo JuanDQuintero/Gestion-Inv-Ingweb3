@@ -21,9 +21,15 @@ const Sidebar = () => {
         </div>
         <nav>
           <ul className='flex flex-col gap-5'> 
-            <li>Inventarios</li>
-            <li>Materiales</li>
-            <li>Usuarios</li>
+            <li>
+              <link href='Inventario'>Inventario</link>
+            </li>
+            <li>
+              <link href='materiales'>Materiales</link>
+            </li>
+            <li>
+              <link href='usuarios'>Usuarios</link>
+            </li>
           </ul>
         </nav>
       </div>
