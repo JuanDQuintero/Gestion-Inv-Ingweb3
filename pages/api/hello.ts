@@ -17,7 +17,7 @@ export default function handler(
       req.headers,
       req.method
     );
-    res.status(200).json({ name: 'Daniel' });
+    res.status(200).json({ name: 'Juan'  });
   } catch {
     res.status(500);
   }

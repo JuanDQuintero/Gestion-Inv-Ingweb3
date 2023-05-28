@@ -1,21 +1,38 @@
-import { gql } from 'graphql-tag';
+import { Resolver } from 'types';
 
-const typeDefs = gql`
-  type User {
-    id: ID
-    name: String
-    email: String
-    password: String
-  }
+const resolvers: Resolver = {
+  Query: {
+    users: async (parent, args, context) => {
+      const { db } = context;
+      const users = await db.user.findMany();
+      return users;
+    },
+    user: async (parent, args, context) => {
+      const { db } = context;
+      const user = await db.user.findFirst({
+        where: {
+          email: args.email,
+        },
+      });
+      return user;
+    },
+  },
+  Mutation: {
+    createUser: async (parent, args, context) => {
+      const { db } = context;
+      const { name, email, password } = args;
 
-  type Query {
-    users: [User]
-    user(email: String!): User
-  }
+      const newUser = await db.user.create({
+        data: {
+          email,
+          name,
+          password,
+        },
+      });
 
-  type Mutation {
-    createUser(name: String!, email: String!, password: String!): User
-  }
-`;
+      return newUser;
+    },
+  },
+};
 
-export { typeDefs };
+export { resolvers };

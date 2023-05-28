@@ -5,6 +5,7 @@ const prisma = new PrismaClient();
 
 const usersEndpoint = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'GET') {
+    
     const users = await prisma.user.findMany();
     res.status(200).json({ users });
   } else if (req.method === 'POST') {
