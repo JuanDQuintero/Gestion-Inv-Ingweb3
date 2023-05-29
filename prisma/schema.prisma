@@ -15,6 +15,11 @@ enum Enum_RoleName {
   USER
 }
 
+enum MovementType {
+  ENTRADA
+  SALIDA
+}
+
 model Account {
   id                 String  @id @default(cuid())
   userId             String
@@ -48,6 +53,7 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
+  createdAt     DateTime @default(now())
   role          Role?    @relation(fields: [roleId], references: [id])
   roleId        String?
   accounts      Account[]
@@ -75,7 +81,7 @@ model Role {
 
 model Material {
   id          String     @id @default(cuid())
-  name        String
+  name        String      @unique
   price       Int
   createdAt   DateTime
   createdBy   User       @relation("MaterialCreatedBy", fields: [createdById], references: [id])
@@ -86,8 +92,9 @@ model Material {
 model Movement {
   id            String     @id @default(cuid())
   dateMov       DateTime
-  quantityIn    Int
-  quantityOut   Int
+  quantityIn    Int        @default(0)
+  quantityOut   Int        @default(0)
+  type          MovementType     
   material      Material   @relation(fields: [materialId], references: [id])
   materialId    String
   performedBy   User       @relation("MovementPerformedBy", fields: [performedById], references: [id])

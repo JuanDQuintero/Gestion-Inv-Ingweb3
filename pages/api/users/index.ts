@@ -15,7 +15,6 @@ const usersEndpoint = async (req: NextApiRequest, res: NextApiResponse) => {
       data: {
         email: body.email,
         name: body.name,
-        password: body.password,
       },
     });
 

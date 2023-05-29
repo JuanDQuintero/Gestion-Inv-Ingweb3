@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "Movement" ALTER COLUMN "quantityIn" DROP NOT NULL,
+ALTER COLUMN "quantityIn" SET DEFAULT 0,
+ALTER COLUMN "quantityOut" DROP NOT NULL,
+ALTER COLUMN "quantityOut" SET DEFAULT 0;
