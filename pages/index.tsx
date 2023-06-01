@@ -10,7 +10,7 @@ const HomePage = () => {
     if(status === 'loading') return <Loading/>
     
   return (<>
-    <div className='flex h-full h-screen flex-col items-center justify-center gap-5'>
+    <div className='flex h-screen flex-col items-center justify-center gap-5'>
         <h1 className='text-6xl'>Sistema de Gestión de Inventarios</h1>
         {session ? (
             <Link href='/inventario'>

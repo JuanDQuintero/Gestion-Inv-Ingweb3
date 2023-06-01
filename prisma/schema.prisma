@@ -54,7 +54,7 @@ model User {
   emailVerified DateTime?
   image         String?
   createdAt     DateTime @default(now())
-  role          Role?    @relation(fields: [roleId], references: [id])
+  role          Role?    @relation(fields: [roleId], references: [id])}
   roleId        String?
   accounts      Account[]
   sessions      Session[]
@@ -82,7 +82,7 @@ model Role {
 model Material {
   id          String     @id @default(cuid())
   name        String      @unique
-  price       Int
+  balance     Int
   createdAt   DateTime
   createdBy   User       @relation("MaterialCreatedBy", fields: [createdById], references: [id])
   createdById String

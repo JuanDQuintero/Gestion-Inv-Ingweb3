@@ -14,7 +14,7 @@ const useUserData = () => {
         email: userEmail,
       },
     });
-    
+        
     
     return { userData, loading, session, status, role: userData?.user?.role?.name };
 }

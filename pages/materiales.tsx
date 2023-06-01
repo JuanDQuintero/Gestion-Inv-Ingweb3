@@ -1,17 +1,17 @@
 import ModalButtons from '@components/Buttons/ModalButtons';
 import Loading from '@components/Loading';
+import PrivateComponent from '@components/PrivateComponent';
 import PrivateRoute from '@components/PrivateRoute';
 import ModalMaterial from '@components/modals/ModalMaterial';
 import { useMaterialData } from '@hooks/useMaterialData';
 import Layout from '@layouts/Layout';
-import React from 'react'
 
 
 
 const Materiales = () => {
 
     const {dataMaterials, loading} = useMaterialData(); 
-
+    
     if (loading) return <Loading />;
     
     return (
@@ -19,12 +19,14 @@ const Materiales = () => {
             <Layout>
                 <div className='w-full p-14 flex flex-col gap-5'>
                     <h1 className='flex justify-center text-4xl pb-10'>Materiales</h1>
-                    <div className='flex justify-between'>
                      
-                        <ModalButtons>
-                            Agregar material
-                        </ModalButtons>
-                    </div>
+                    <PrivateComponent role='ADMIN'>
+                        <div className='flex justify-end'>
+                            <ModalButtons>
+                                 Agregar material
+                            </ModalButtons>
+                        </div>
+                    </PrivateComponent>
                     <table>
                         <thead>
                             <tr>
@@ -39,8 +41,8 @@ const Materiales = () => {
                                 <tr key={material.id}>
                                     <td>{material.id}</td>
                                     <td>{material.name}</td>
-                                    <td>{material.createdAt}</td>
-                                    <td>{material.price}</td>
+                                    <td>{material.createdAt.toLocaleString()}</td>
+                                    <td>{material.balance}</td>
                                 </tr>
                             ))}
                         </tbody>

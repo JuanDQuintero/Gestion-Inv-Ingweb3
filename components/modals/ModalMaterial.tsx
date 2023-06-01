@@ -9,37 +9,35 @@ import Loading from '@components/Loading';
 
 const ModalMaterial = () => {
     const { openModal, setOpenModal } = useInventarioContext();
-    const [createShipment, { loading: mutationLoading }] =
+    const [createMaterial, { loading: mutationLoading }] =
     useMutation(CREATE_MATERIAL);
     const [formData, setFormData] = useState<{
       name: string;
-      price: number;
+      balance: number;
     }>({
       name: '',
-      price: 0,
+      balance: 0,
     });
   
 
     const submitForm = async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       try {
-        const { data } = await createShipment({
+        await createMaterial({
           variables: {
             name: formData.name,
-            price: formData.price,
+            balance: formData.balance,
             createdAt: new Date().toISOString(),
           },
         });
         toast.success(
-          `Despacho creado con éxito. El peso por racimo fue de ${data?.createShipment?.bunchWeight.toFixed(
-            2
-          )} kg`
+          'Material creado con éxito'
         );
         setOpenModal(false);
       } catch (e) {
         // eslint-disable-next-line no-console
         console.error(e);
-        toast.error('Ocurrió un error al crear el despacho');
+        toast.error('Ocurrió un error al crear el material');
       }
     };
 
@@ -79,7 +77,7 @@ const ModalMaterial = () => {
                 min={0}
                 required
                 step={1}
-                value={formData.price.toString()}
+                value={formData.balance.toString()}
                 onChange={(e) =>
                   setFormData((prev) => ({
                     ...prev,

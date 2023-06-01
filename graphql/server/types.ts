@@ -18,6 +18,7 @@ const typeDefs = gql`
     email: String
     image: String
     role: Role
+    roleId: String
     createdAt: DateTime
     materials: [Material]
     movements: [Movement]
@@ -34,7 +35,7 @@ const typeDefs = gql`
     id: ID
     name: String
     createdAt: DateTime
-    price: Int
+    balance: Int
     createdBy: User
     movements: [Movement]
   }
@@ -60,8 +61,10 @@ const typeDefs = gql`
 
   type Mutation {
     createUser(name: String!, email: String!): User
-    createMaterial(name: String!, price: Float!, createdAt: DateTime!): Material
+    createMaterial(name: String!, balance: Int!, createdAt: DateTime!): Material
     createMovement(dateMov: DateTime!, quantityIn: Int!, quantityOut: Int!, type: String!, material: String!): Movement
+    userUpdate(email: String!, role: String!): User
+    materialUpdate(id: String!, balance: Int!): Material
   }
 `;
 

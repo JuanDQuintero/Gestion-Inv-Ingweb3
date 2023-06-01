@@ -4,7 +4,7 @@ import { ExtendedMaterial } from "types";
 
 const useMaterialData = () => {
 
-    const {data, loading} = useQuery<{materials: ExtendedMaterial[]}>(GET_MATERIALS);
+    const {data, loading} = useQuery<{materials: ExtendedMaterial[]}>(GET_MATERIALS, {fetchPolicy: "cache-first"});
     
     const dataMaterials = data?.materials;    
     
