@@ -56,7 +56,7 @@ const ModalUser = () => {
   
 
   const handleRoleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedRole = event.target.value as Enum_RoleName; // Realizar conversión de tipo
+    const selectedRole = event.target.value as Enum_RoleName;
     setFormData((prev) => ({
       ...prev,
       role: selectedRole,
@@ -81,12 +81,12 @@ const ModalUser = () => {
           role: role,
         },
       });
-      toast.success('Movimiento creado con éxito.');
+      toast.success('Usuario editado con éxito.');
       setOpenModal(false);
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error(e);
-      toast.error('Ocurrió un error al crear el movimiento');
+      toast.error('Ocurrió un error al editar el usuario');
     }
   };
   
