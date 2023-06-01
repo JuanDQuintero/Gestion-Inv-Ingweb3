@@ -37,7 +37,6 @@ const MovimientosTable = ({ selectMaterial }: { selectMaterial: SelectMaterial }
     setLoadingTable(false);
   } catch (error) {
     setLoadingTable(false);
-    // Manejo de errores
   }
 };
 
